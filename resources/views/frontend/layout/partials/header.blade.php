@@ -22,8 +22,8 @@
                             Programs
                         </a>
                         <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="program.html">Mental Health</a></li>
-                            <li><a class="dropdown-item" href="#">SUICIDE AWARENESS</a></li>
+                            <li><a class="dropdown-item" href="{{route('program','mental-health')}}">Mental Health</a></li>
+                            <li><a class="dropdown-item" href="{{route('program','suicide-awareness')}}">SUICIDE AWARENESS</a></li>
 
                             <li><a class="dropdown-item" href="#">SELF DISCOVERY WORKSHOPS</a></li>
                             <li><a class="dropdown-item" href="#">CONNECTING WITH FOSTER CARE YOUTH</a></li>

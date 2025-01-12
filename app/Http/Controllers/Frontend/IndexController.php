@@ -83,4 +83,8 @@ class IndexController extends Controller
             "msg" => "Some error occurred."
         ], 500);
     }
+    public function program($slug){
+    
+        return view('frontend.program');
+    }
 }
