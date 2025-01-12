@@ -1,0 +1,636 @@
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1440px !important;
+        padding: 0 80px !important;
+    }
+   
+    .media--hover-effect img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+    }
+   
+}
+
+@media screen and (max-width: 1299px) and (min-width: 1200px) {
+    .quaterly-img-div {
+        width: 160px;
+        height: 160px;
+    }
+    .logo-img {
+        width: 240px;
+    }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+    .quaterly-container {
+        justify-content: space-between;
+    }
+
+    .quaterly-img-div {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 20px;
+    }
+
+    .quaterly-card {
+        width: 22%;
+    }
+
+    .quaterly-card {
+        padding: 24px 17px;
+        width: 24%;
+        min-height: 296px;
+    }
+}
+
+@media screen and (max-width: 1299px) and (min-width: 992px) {
+    .btn-orange-large {
+        padding: 22px 24px;
+    }
+
+    .btn-div-large {
+        width: 80%;
+    }
+
+    .footer-h3 {
+        font-size: 18px;
+    }
+
+    .footer-h3>span {
+        font-size: 18px;
+        word-wrap: break-word;
+    }
+
+    .program-image-box {
+        width: 390px;
+        height: 390px;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1306px) {
+    .navbar-expand-xl .navbar-nav .nav-link {
+        padding-right: .3rem !important;
+        padding-left: .3rem !important;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 13px !important;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .explore-btn-div {
+        margin: auto;
+        width: 26%;
+    }
+    .expanding-card h5 {
+        text-align: center;
+        min-height: 80px;
+    }
+    .yes-america-area .primary-header-white {
+        min-height: 144px;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+    .section-gap-2 {
+        padding: 60px 0 0;
+    }
+    .building-bg-div {
+        height: 100%;
+        /* height: 850px; */
+    }
+    .community-bg-div {
+        margin-top: 0;
+    }
+    .vission-order-medium-1 {
+        order: 1;
+    }
+
+    .vission-order-medium-2 {
+        order: 2;
+    }
+
+    .vission-bg-div {
+        height: 580px;
+        display: block;
+    }
+
+    .vission-bg-div {
+        margin-bottom: 28px;
+    }
+
+    .values-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0 32px;
+        max-width: 546px;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+
+    .values-image-box {
+        width: 100%;
+        height: 580px;
+    }
+
+    .values-content-box {
+        padding: 30px 0;
+        width: 100%;
+    }
+
+    .support-img-div {
+        height: 700px;
+    }
+
+    /* ----------------- membership page design ---------------- */
+    .membership-order-2 {
+        order: 2;
+    }
+
+    .membership-order-1 {
+        order: 1;
+        margin-bottom: 32px;
+    }
+
+    /* --------------- enrollment page design ------------------ */
+    .quaterly-card {
+        width: 47%;
+        padding: 24px 18px;
+    }
+
+    .quaterly-container {
+        justify-content: space-between;
+    }
+
+    /* --------------- program page design ----------------- */
+    .program-image-box {
+        width: 400px;
+        height: 400px;
+        margin-left: auto;
+        margin-bottom: 20px;
+        margin-right: auto;
+    }
+    /* --------------- store detail page -------------- */
+    .store-detail-area {
+        padding: 160px 0 60px;
+    }
+}
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+    .primary-header {
+        font-size: 33px;
+    }
+
+    .secondary-header {
+        font-size: 40px;
+    }
+
+    .expanding-card {
+        flex-basis: 30%;
+        padding: 0;
+
+    }
+    .expanding-card h5 {
+        text-align: center;
+        min-height: 62px;
+    }
+    /* ============== our -vission page ====== */
+    .vission-bg-div {
+        height: 580px;
+        display: block;
+    }
+
+    .values-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0 15px;
+        max-width: 720px;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+
+    .values-image-box {
+        background-position: 84% 70%;
+    }
+
+    /* .values-content-box {
+        padding: 70px 65px 70px 65px;
+    } */
+    .our-values-area .btn-div-large {
+        width: 90%;
+    }
+
+    .btn-orange-large {
+        padding: 16px 28px;
+    }
+
+    /* -------------- contact us page design --------------- */
+    .contact-us-area {
+        padding: 196px 0px 60px;
+        background-position: 15% 79%;
+    }
+
+    /* ------------------ enrollment page design --------------- */
+    .quaterly-img-div {
+        width: 200px;
+        height: 200px;
+    }
+
+    .quarterly-area {
+        padding: 200px 0 60px;
+    }
+
+    .quaterly-header-div {
+        padding-bottom: 70px;
+    }
+
+    .quaterly-header {
+        font-size: 44px;
+    }
+}
+
+@media screen and (max-width: 767px) and (min-width: 576px) {
+    .logo-img {
+        width: 200px;
+    }
+
+    .btn-div-large {
+        width: 70%;
+
+    }
+
+    .secondary-header {
+        font-size: 38px;
+    }
+
+    .primary-header {
+        font-size: 28px;
+    }
+
+    .primary-header-white {
+        font-size: 28px;
+    }
+
+    .banner-heading {
+        font-size: 38px;
+    }
+
+    .banner-content-box {
+        width: 80%;
+        top: 50%;
+        transform: translate(-1%, -50%);
+    }
+   
+  
+    .expanding-card {
+        flex-basis: 30%;
+        padding: 0 6px;
+    }
+
+    .expanding-card-img-box {
+        width: 145px;
+        height: 145px;
+        margin-bottom: 18px;
+    }
+
+    /* ----------- our team page ----------------- */
+    .our-team-area {
+        padding: 150px 0 50px;
+    }
+
+    /* ============================== vission page================ */
+
+    /* -------------------- contact us page design ---------------- */
+    .contact-us-area {
+        padding: 144px 0px 58px;
+        background-position: 0% 63%;
+    }
+
+    /* ------------- enrollment design ----------------- */
+    .quaterly-header-div {
+        padding: 0 32px 65px 32px;
+    }
+
+    .quarterly-area {
+        padding: 180px 0 70px;
+    }
+
+    .quaterly-header {
+        font-size: 38px;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .accordion-button {
+        font-size: 16px !important;
+    }
+
+    .btn-orange-large {
+        padding: 16px 28px;
+    }
+
+    .capital-blue-header {
+        font-size: 24px;
+    }
+
+    .primary-black-header {
+        font-size: 28px;
+    }
+    .building-bg-div {
+        height: 450px;
+        /* height: 850px; */
+    }
+    .building-content-box {
+        margin-top: 30px;
+    }
+    .community-bg-div {
+        height: 450px;
+    }
+    .community-content-box {
+        margin-top: 30px;
+    }
+    .vision-header {
+        font-size: 36px;
+    }
+
+    /* ----------- header ------------ */
+
+
+    .main-header {
+        padding: 6px 10px;
+    }
+
+    /* ----------- banner --------- */
+
+    .main-banner-area {
+        background-position: center center;
+    }
+
+    /* ---------- makes our special program ------- */
+    /* ------------- our -vission-page ------------------------------     */
+    .common-banner-area {
+        width: 100%;
+        height: 392px;
+        background-position: 63% 42%;
+    }
+
+    .vision-banner-content-box {
+        bottom: 27%;
+        left: 4%;
+    }
+
+    /* ------------------ our team page ---------------- */
+    .team-container {
+        padding: 0 50px;
+        flex-direction: column;
+    }
+
+    /* ------------- donate page design ----------------- */
+    .support-youth-area {
+        padding: 160px 0 70px;
+    }
+
+    /* ---------- footer ---------- */
+    .building-blue-text {
+        font-size: 18px;
+    }
+
+    .footer-logo-img {
+        width: 200px;
+        height: auto;
+    }
+
+    .footer-search-input {
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 12px;
+    }
+
+    .footer-subscribe-form-div {
+        padding: 18px 0;
+    }
+
+    /* ------------------ membership page design ---------------- */
+    .membership-area {
+        padding: 180px 0px 70px;
+    }
+
+    /* ----------------- program page design --------------- */
+    .program-area {
+        padding: 160px 0 60px;
+    }
+
+    /* ------------- store pae design ------------- */
+    .store-card {
+        width: 100%;
+        height: auto;
+    }
+
+    .store-container {
+        padding: 0 32px;
+        flex-direction: column;
+    }
+    .store-header-div {
+        padding: 0 32px 0px 32px;
+    }
+    .store-detail-area {
+        padding: 101px 0 60px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+
+    .container {
+        width: 100%;
+        padding-right: var(--bs-gutter-x, 2rem) !important;
+        padding-left: var(--bs-gutter-x, 2rem) !important;
+    }
+
+    .section-gap {
+        padding: 60px 0;
+    }
+
+    .logo-img {
+        width: 146px;
+    }
+
+    .banner-heading {
+        font-size: 32px;
+    }
+
+    .secondary-header {
+        font-size: 34px;
+    }
+
+    .primary-header {
+        font-size: 24px;
+    }
+
+    .primary-header-white {
+        font-size: 24px;
+    }
+
+    /* --------- banner design ----- */
+    .banner-content-box {
+        width: auto;
+        top: 52%;
+        transform: translateY(-48%);
+    }
+
+    .main-banner-area {
+        height: 428px;
+    }
+
+    /* --------- banner design end ----- */
+    .btn-div-large {
+        width: 80%;
+        margin: auto;
+    }
+
+    .makes-program-img-box {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto 30px auto;
+    }
+
+    .expanding-card {
+        flex-basis: 100%;
+        padding: 0;
+    }
+
+    .connecting-image-box {
+        height: 100%;
+        height: auto;
+    }
+
+    .connecting-content-box {
+        padding: 0;
+    }
+
+    /* ---------------- vission page design -------------- */
+
+    .vission-bg-div {
+        height: 440px !important;
+        display: block;
+    }
+
+    .values-image-box {
+        width: 100%;
+        height: 350px !important;
+    }
+
+    .values-container {
+        padding: 0;
+
+    }
+
+    .values-content-box {
+        padding: 30px 32px;
+        width: 100%;
+    }
+
+    /* ----------------------- our team page ------------------ */
+    .our-team-area {
+        padding: 125px 0 50px;
+    }
+
+    .team-container {
+        padding: 0 32px;
+    }
+
+    .team-header {
+        font-size: 36px;
+    }
+
+    .store-header {
+        font-size: 36px;
+        padding-bottom: 18px;
+    }
+
+
+    /* -------------------- contact us page design ---------------- */
+    .contact-us-area {
+        padding: 129px 0px 55px;
+        background-position: 51% 69%;
+        height: 100%;
+    }
+
+    /* .contact-form-inner-div {
+        flex-direction: column;
+    }
+    .contact-inuput-w-50 {
+        width: 100%;
+    } */
+    /* ----------------- donate page design ------------------ */
+    .support-youth-area {
+        padding: 160px 0 70px;
+        width: 100%;
+    }
+
+    .support-img-div {
+        height: 500px;
+    }
+
+    /* -------------------- membership page design --------------------- */
+    .membership-area {
+        padding: 160px 0px 60px;
+    }
+
+    .membership-img-box {
+        height: auto;
+    }
+
+    /* --------------- enrollment page design --------------- */
+    .quaterly-img-div {
+        width: 200px;
+        height: 200px;
+    }
+
+    .quaterly-card {
+        width: 100%;
+    }
+
+    .quarterly-area {
+        padding: 150px 0 61px;
+    }
+
+    .quaterly-header {
+        font-size: 30px;
+    }
+
+    .quaterly-header-div {
+        padding: 0 32px 38px 32px;
+    }
+
+    /* ----------------- program page design ------------------ */
+    .program-image-box {
+        width: 300px;
+        height: 300px;
+        margin-left: auto;
+        margin-bottom: 20px;
+        margin-right: auto;
+    }
+
+    .program-area {
+        padding: 150px 0 60px;
+    }
+    /* ---------------- store detail page design ------------------ */
+    .store-input-margin {
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .btn-div-large {
+        width: 100% !important;
+        margin: auto;
+    }
+
+}
