@@ -55,6 +55,12 @@ class ProductController extends Controller
                 'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             ]);
 
+            
+
+// Update the input with default values where necessary
+$request->merge([
+    'measurement_param' => '0',
+]);
 
             $variations = [];
             foreach ($request->variant_name as $index => $variantName) {
@@ -131,6 +137,9 @@ class ProductController extends Controller
             ]);
             // dd($request->all());
             // Prepare variations
+            $request->merge([
+                'measurement_param' => '0',
+            ]);
             $variations = [];
             foreach ($request->variant_name as $index => $variantName) {
                 $variations[] = [

@@ -23,13 +23,16 @@
             <h2 class="store-header">Store</h2>
         </div>
         <div class="store-container">
+            <div class="row">
             @foreach($products as $product)
+            <div class="col-6">
             <div class="store-card">
+                
                 <div class="card__media">
                     <div class="media--hover-effect">
-                        <a href="{{route('store', $product->slug)}}" class="store-detail-link"><img src="{{asset('storage/'.$product->productImages[0]->image_path)}}" alt="white-hat" class="store-img1"></a> 
+                        <a href="{{route('store', $product->slug)}}" class="store-detail-link"><img src="{{ isset($product->productImages[0]) ? asset('storage/'.$product->productImages[0]->image_path) : '' }}" alt="white-hat" class="store-img1"></a> 
                       
-                        <a href="{{route('store', $product->slug)}}" class="store-detail-link"> <img src="{{asset('storage/'.$product->productImages[1]->image_path)}}"
+                        <a href="{{route('store', $product->slug)}}" class="store-detail-link"> <img src="{{ isset($product->productImages[1]) ? asset('storage/'.$product->productImages[1]->image_path) : asset('storage/'.$product->productImages[0]->image_path) }}"
                             alt="black-hat" class="hover-image store-img"></a>
                     </div>
                     <div class="store-content">
@@ -39,10 +42,13 @@
                 </div>
               
             </div>
+        </div>
             @endforeach
-           
+        </div>
         </div>
     </section>
-
+<style>
+ 
+    </style>
     <!-- ================ store area end ===================== -->
 @endsection

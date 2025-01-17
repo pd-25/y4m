@@ -115,12 +115,12 @@
                                             <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                                         @enderror
                                     </div>
-                                    <div class="col-md-2">
+                                    {{-- <div class="col-md-2">
                                         <input type="text" name="measurement_param[]" class="form-control" placeholder="Unit (e.g., kg/gm)" required>
                                         @error('measurement_param.*')
                                             <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                                         @enderror
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-2">
                                         <input type="number" name="price[]" class="form-control" placeholder="Price" required>
                                         @error('price.*')
