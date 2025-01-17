@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Models\Program;
 use App\Models\User;
+use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -25,15 +28,19 @@ class IndexController extends Controller
 
     function ourteam()
     {
-        return view('frontend.our-team');
+        $member = Member::get();
+
+        return view('frontend.our-team',compact('member'));
     }
 
     function store($slug = null)
     {
         if ($slug) {
-            return view('frontend.single-store', compact('slug'));
+            $product = Product::where('slug', $slug)->first();
+            return view('frontend.single-store', compact('slug', 'product'));
         }
-        return view('frontend.store');
+        $products = Product::orderBy('id','desc')->get();
+        return view('frontend.store' ,compact('products'));
     }
 
     function enrollment()
@@ -84,7 +91,9 @@ class IndexController extends Controller
         ], 500);
     }
     public function program($slug){
-    
-        return view('frontend.program');
+
+        $program = Program::where('slug', $slug)->first();
+
+        return view('frontend.program', compact('program'));
     }
 }

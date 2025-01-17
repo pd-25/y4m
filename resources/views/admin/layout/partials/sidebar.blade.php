@@ -42,6 +42,18 @@
                 <span>Categories</span>
             </a>
         </li>
+        <li class="nav-item {{ Route::is('programs.*') ? 'active' : '' }}">
+            <a class="nav-link " href="{{route('programs.index')}}">
+                <i class="ri-group-fill"></i>
+                <span>Programs</span>
+            </a>
+        </li>
+        <li class="nav-item {{ Route::is('team-members.*') ? 'active' : '' }}">
+            <a class="nav-link " href="{{route('team-members.index')}}">
+                <i class="ri-group-fill"></i>
+                <span>Team Members</span>
+            </a>
+        </li>
 
         <li class="nav-item {{ Route::is('product-mamages.*') ? 'active' : '' }}">
             <a class="nav-link " href="{{route('product-mamages.index')}}">

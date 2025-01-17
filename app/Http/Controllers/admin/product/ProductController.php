@@ -48,11 +48,11 @@ class ProductController extends Controller
                 'type' => 'required|string',
                 'description' => 'required|string',
                 'variant_name.*' => 'required|string',
-                'measurement.*' => 'required|numeric',
+                'measurement.*' => 'required|string',
                 'measurement_param.*' => 'required|string',
                 'price.*' => 'required|numeric',
                 'quantity.*' => 'required|integer',
-                'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             ]);
 
 
@@ -123,11 +123,11 @@ class ProductController extends Controller
                 'type' => 'required|string',
                 'description' => 'required|string',
                 'variant_name.*' => 'required|string',
-                'measurement.*' => 'required|numeric',
+                'measurement.*' => 'required|string',
                 'measurement_param.*' => 'required|string',
                 'price.*' => 'required|numeric',
                 'quantity.*' => 'required|integer',
-                'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             ]);
             // dd($request->all());
             // Prepare variations

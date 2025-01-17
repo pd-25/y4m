@@ -21,16 +21,14 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Programs
                         </a>
+                        @php
+                        use App\Models\Program;
+                            $programs = Program::all();
+                        @endphp
                         <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{route('program','mental-health')}}">Mental Health</a></li>
-                            <li><a class="dropdown-item" href="{{route('program','suicide-awareness')}}">SUICIDE AWARENESS</a></li>
-
-                            <li><a class="dropdown-item" href="#">SELF DISCOVERY WORKSHOPS</a></li>
-                            <li><a class="dropdown-item" href="#">CONNECTING WITH FOSTER CARE YOUTH</a></li>
-                            <li><a class="dropdown-item" href="#">CONNECTING WITH ORPHAN YOUTH</a></li>
-                            <li><a class="dropdown-item" href="#">YOUTH INTERNSHIPS</a></li>
-
-                            <li><a class="dropdown-item" href="#">MENTORSHIP WORKSHOPS</a></li>
+                            @foreach($programs as $program)
+                                <li><a class="dropdown-item" href="{{route('program',$program->slug)}}">{{$program->title}}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li class="nav-item">

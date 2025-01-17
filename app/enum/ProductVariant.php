@@ -3,12 +3,15 @@
 namespace App\enum;
 class ProductVariant
 {
-    const WEIGHT = 'Weight';
+    const Size = 'Size';
+    const Color = 'Color';
+
 
     public static function values(): array
     {
         return [
-            self::WEIGHT
+            self::Size,
+            self::Color
         ];
     }
 }

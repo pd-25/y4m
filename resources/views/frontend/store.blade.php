@@ -23,36 +23,24 @@
             <h2 class="store-header">Store</h2>
         </div>
         <div class="store-container">
+            @foreach($products as $product)
             <div class="store-card">
                 <div class="card__media">
                     <div class="media--hover-effect">
-                        <a href="{{route('store', 23)}}" class="store-detail-link"><img src="{{asset('fassets/images/hat-white.webp')}}" alt="white-hat" class="store-img1"></a> 
+                        <a href="{{route('store', $product->slug)}}" class="store-detail-link"><img src="{{asset('storage/'.$product->productImages[0]->image_path)}}" alt="white-hat" class="store-img1"></a> 
                       
-                        <a href="{{route('store', 23)}}" class="store-detail-link"> <img src="{{asset('fassets/images/hat-black.webp')}}"
+                        <a href="{{route('store', $product->slug)}}" class="store-detail-link"> <img src="{{asset('storage/'.$product->productImages[1]->image_path)}}"
                             alt="black-hat" class="hover-image store-img"></a>
                     </div>
                     <div class="store-content">
-                        <h5 class="store-card-header"> <a href="{{route('store', 23)}}" class="store-detail-link-header store-card-content-a">Yes America! Hat</a></h5>
-                        <p class="store-card-p"> <a href="{{route('store', 23)}}" class="store-detail-link-p store-card-content-a">$25.00</a></p>
+                        <h5 class="store-card-header"> <a href="{{route('store', $product->slug)}}" class="store-detail-link-header store-card-content-a">{{$product->name}}</a></h5>
+                        <p class="store-card-p"> <a href="{{route('store', $product->slug)}}" class="store-detail-link-p store-card-content-a">${{$product->productVariants[0]->price}}</a></p>
                     </div>
                 </div>
               
             </div>
-            <div class="store-card">
-                <div class="card__media">
-                    <div class="media--hover-effect">
-                      <a href="{{route('store', 23)}}" class="store-detail-link"> <img src="{{asset('fassets/images/white-shirt.webp')}}" alt="white-hat" class="store-img1"></a> 
-                      
-                      <a href="{{route('store', 23)}}" class="store-detail-link"> <img src="{{asset('fassets/images/black-shirt.webp')}}"
-                            alt="black-hat" class="hover-image store-img"></a>
-                    </div>
-                    <div class="store-content">
-                        <h5 class="store-card-header"> <a href="{{route('store', 23)}}" class="store-detail-link-header store-card-content-a">Yes America! T-Shirt</a></h5>
-                        <p class="store-card-p"> <a href="{{route('store', 23)}}" class="store-detail-link-p store-card-content-a">$25.00</a></p>
-                    </div>
-                </div>
-              
-            </div>
+            @endforeach
+           
         </div>
     </section>
 

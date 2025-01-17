@@ -85,7 +85,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-2">
-                                            <input type="number" name="measurement[]" class="form-control" placeholder="Measurement" value="{{ $variant->measurement }}" required>
+                                            <input type="text" name="measurement[]" class="form-control" placeholder="Color Name (e.g., Black)" value="{{ $variant->measurement }}" required>
                                             @error('measurement.*')
                                                 <span class="text-danger" role="alert"><strong>{{ $message }}</strong></span>
                                             @enderror

@@ -5,19 +5,18 @@
             <h2 class="team-header">Our team</h2>
         </div>
         <div class="team-container">
+            @foreach($member as $member)
             <div class="team-card">
                 <div class="team-card-img-box">
-                    <img src="{{asset('fassets/images/team-1.webp')}}" alt="team-profile" class="team-img">
+                    <img src="{{asset('storage/'.$member->image)}}" alt="team-profile" class="team-img">
                 </div>
                 <div class="team-card-content-box">
-                    <h5 class="team-card-header">First Name Last Name</h5>
-                    <p class="secondary-vission-p">It all begins with an idea. Maybe you want to launch a business.
-                        Maybe you want to turn a hobby into something more. Or maybe you have a creative project to
-                        share with the world. Whatever it is, the way you tell your story online can make all the
-                        difference.</p>
+                    <h5 class="team-card-header">{{$member->name}}</h5>
+                    <p class="secondary-vission-p">{{$member->description}}</p>
                 </div>
             </div>
-            <div class="team-card">
+            @endforeach
+            {{-- <div class="team-card">
                 <div class="team-card-img-box">
                     <img src="{{asset('fassets/images/team-2.webp')}}" alt="team-profile" class="team-img">
                 </div>
@@ -40,7 +39,7 @@
                         share with the world. Whatever it is, the way you tell your story online can make all the
                         difference.</p>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 @endsection
