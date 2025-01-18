@@ -28,7 +28,7 @@
                             </thead>
                             <tbody>
 
-                                @forelse ($leads as $lead)
+                                @forelse ($data as $lead)
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $lead->first_name.' '.$lead->last_name }}</td>
@@ -40,7 +40,7 @@
                                         <td>
                                             {{-- <a href="{{ route('category-mamages.edit', $lead->slug) }}"><i
                                                     class="ri-pencil-fill"></i></a> --}}
-                                            <form method="POST" action="{{ route('category-mamages.destroy', $lead->slug) }}"
+                                            <form method="POST" action="{{ route('admin.leadsdestory', $lead->id) }}"
                                                 class="d-inline-block pl-2">
                                                 @csrf
                                                 @method('DELETE')

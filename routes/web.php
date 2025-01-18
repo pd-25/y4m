@@ -17,6 +17,7 @@ Route::get('/membership',[IndexController::class,'membership'])->name('membershi
 Route::get('/contact-us',[IndexController::class,'contactus'])->name('contactus');
 Route::get('/donate',[IndexController::class,'donate'])->name('donate');
 Route::post('/lead-create',[IndexController::class,'leadCreate'])->name('lead-create');
+Route::post('/contact-data',[IndexController::class,'contactdata'])->name('contact-data');
 Route::get('/program/{slug?}',[IndexController::class,'program'])->name('program');
 
 require __DIR__ . '/admin.php';

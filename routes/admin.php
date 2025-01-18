@@ -24,6 +24,7 @@ Route::post('admin/login', [AuthController::class, 'login'])->name('admin.login'
 Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/leads/{page}', [DashboardController::class, 'leads'])->name('admin.leads');
+    Route::delete('/leads/destroy/{id}', [DashboardController::class, 'leadsdestory'])->name('admin.leadsdestory');
     Route::resource('product-mamages', ProductController::class);
     Route::resource('category-mamages', CategoryController::class);
     Route::get('log-out', [AuthController::class, 'adminLogout'])->name('admin.logout');

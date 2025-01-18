@@ -17,14 +17,14 @@
             </a>
             <ul id="components-nav" class="nav-content collapse {{(Route::is('admin.leads')) ? 'show' : ''}}" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a class="{{ Route::is('admin.leads') ? 'active' : ''}}" href="{{route('admin.leads', 'membership')}}">
+                    <a class="{{ request()->segment(count(request()->segments())) == 'membership' ? 'active' : ''}}" href="{{route('admin.leads', 'membership')}}">
                         <i class="ri-group-fill"></i>
                         <span>Member leads</span>
                     </a>
                 </li>
 
                 <li class="">
-                    <a class="" href="">
+                    <a class="{{request()->segment(count(request()->segments())) == 'contacts' ? 'active' : ''}}" href="{{route('admin.leads', 'contacts')}}">
                         <i class="ri-group-fill"></i>
                         <span>Contact Page</span>
                     </a>
@@ -34,14 +34,6 @@
         </li>
         
 
-
-
-        <li class="nav-item {{ Route::is('category-mamages.*') ? 'active' : '' }}">
-            <a class="nav-link " href="{{route('category-mamages.index')}}">
-                <i class="ri-group-fill"></i>
-                <span>Categories</span>
-            </a>
-        </li>
         <li class="nav-item {{ Route::is('programs.*') ? 'active' : '' }}">
             <a class="nav-link " href="{{route('programs.index')}}">
                 <i class="ri-group-fill"></i>
@@ -54,6 +46,16 @@
                 <span>Team Members</span>
             </a>
         </li>
+        <hr>
+        <h5>Product</h5>
+
+        <li class="nav-item {{ Route::is('category-mamages.*') ? 'active' : '' }}">
+            <a class="nav-link " href="{{route('category-mamages.index')}}">
+                <i class="ri-group-fill"></i>
+                <span>Categories</span>
+            </a>
+        </li>
+       
 
         <li class="nav-item {{ Route::is('product-mamages.*') ? 'active' : '' }}">
             <a class="nav-link " href="{{route('product-mamages.index')}}">
