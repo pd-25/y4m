@@ -35,12 +35,12 @@ Route::get('storage', function () {
 
 });
 
-Route::get('migrate', function () {
+Route::get('dump', function () {
 
-    \Artisan::call('key:generate');
-    \Artisan::call('migrate');
+    \Artisan::call('dump:autoload');
 
-    dd("storage is link");
+
+    dd("dump is link");
 
 });
 
