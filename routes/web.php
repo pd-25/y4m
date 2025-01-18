@@ -37,7 +37,7 @@ Route::get('storage', function () {
 
 Route::get('dump', function () {
 
-    \Artisan::call('dump:autoload');
+    \Artisan::call('dump-autoload');
 
 
     dd("dump is link");
