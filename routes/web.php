@@ -19,6 +19,30 @@ Route::get('/donate',[IndexController::class,'donate'])->name('donate');
 Route::post('/lead-create',[IndexController::class,'leadCreate'])->name('lead-create');
 Route::post('/contact-data',[IndexController::class,'contactdata'])->name('contact-data');
 Route::get('/program/{slug?}',[IndexController::class,'program'])->name('program');
+Route::get('optimize', function () {
+
+    \Artisan::call('optimize:clear');
+
+    dd("optimize is cleared");
+
+});
+
+Route::get('storage', function () {
+
+    \Artisan::call('storage:link');
+
+    dd("storage is link");
+
+});
+
+Route::get('migrate', function () {
+
+    \Artisan::call(' key:generate');
+    \Artisan::call(' migrate');
+
+    dd("storage is link");
+
+});
 
 require __DIR__ . '/admin.php';
 
