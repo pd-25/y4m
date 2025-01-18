@@ -37,8 +37,8 @@ Route::get('storage', function () {
 
 Route::get('migrate', function () {
 
-    \Artisan::call(' key:generate');
-    \Artisan::call(' migrate');
+    \Artisan::call('key:generate');
+    \Artisan::call('migrate');
 
     dd("storage is link");
 
