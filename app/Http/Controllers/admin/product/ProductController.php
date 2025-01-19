@@ -53,14 +53,18 @@ class ProductController extends Controller
                 'price.*' => 'required|numeric',
                 'quantity.*' => 'required|integer',
                 'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+                'meta_title' => 'nullable|string|max:255',
+                'meta_description' => 'nullable|string',
+                'hederscript' => 'nullable|string',
+
             ]);
 
-            
 
-// Update the input with default values where necessary
-$request->merge([
-    'measurement_param' => '0',
-]);
+
+            // Update the input with default values where necessary
+            $request->merge([
+                'measurement_param' => '0',
+            ]);
 
             $variations = [];
             foreach ($request->variant_name as $index => $variantName) {
@@ -74,7 +78,7 @@ $request->merge([
                 ];
             }
 
-            $productData = $request->only("name", "category_id", "type", "description");
+            $productData = $request->only("name", "category_id", "type", "description","meta_title","meta_description","hederscript");
             $productData["quantity_in_stock"] = array_sum(array_column($variations, 'quantity'));
 
             $productImages = $request->only("images");
@@ -110,13 +114,13 @@ $request->merge([
         if (!$product) {
             return redirect()->route('product-mamages.index')->with('error', 'Product not found');
         }
-    
+
         return view('admin.products.edit', [
             'product' => $product,
             'categories' => $this->categoryInterface->fetchAllCategories("DESC"),
         ]);
     }
-    
+
     /**
      * Update the specified resource in storage.
      */
@@ -134,6 +138,9 @@ $request->merge([
                 'price.*' => 'required|numeric',
                 'quantity.*' => 'required|integer',
                 'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+                'meta_title' => 'nullable|string|max:255',
+                'meta_description' => 'nullable|string',
+                'hederscript' => 'nullable|string',
             ]);
             // dd($request->all());
             // Prepare variations
@@ -150,17 +157,17 @@ $request->merge([
                     'quantity' => $request->quantity[$index],
                 ];
             }
-    
+
             // Prepare main product data
-            $productData = $request->only("name", "category_id", "type", "description");
+            $productData = $request->only("name", "category_id", "type", "description","meta_title","meta_description","hederscript");
             $productData["quantity_in_stock"] = array_sum(array_column($variations, 'quantity'));
-    
+
             // Prepare images if any new images are uploaded
             $productImages = $request->only("images");
-    
+
             // Call the update method in the interface
             $updateProduct = $this->productInterface->updateProduct($id, $productData, $variations, $productImages);
-    
+
             if ($updateProduct) {
                 return redirect()->route('product-mamages.index')->with('msg', 'Product updated successfully!');
             } else {

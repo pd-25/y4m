@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Program;
 use App\Models\User;
 use App\Models\Member;
+use App\Models\Seo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,53 +16,67 @@ class IndexController extends Controller
 {
     function index()
     {
-        return view('frontend.index');
+        $seo=Seo::where('page_name','=','home')->first();
+        return view('frontend.index',compact('seo'));
     }
     function ourvision()
     {
-        return view('frontend.our-vision');
+        $seo = Seo::where('page_name','=','our-vision')->first();
+        return view('frontend.our-vision',compact('seo'));
     }
+    public function program($slug){
 
-    function singleprogram($slug)
-    {
-        return view('frontend.single-program', compact('slug'));
+        $program = Program::where('slug', $slug)->first();
+        $seo = $program;
+
+        return view('frontend.program', compact('program','seo'));
     }
 
     function ourteam()
     {
         $member = Member::get();
+        $seo = Seo::where('page_name','=','our-team')->first();
 
-        return view('frontend.our-team',compact('member'));
+        return view('frontend.our-team',compact('member','seo'));
     }
 
     function store($slug = null)
     {
         if ($slug) {
             $product = Product::where('slug', $slug)->first();
-            return view('frontend.single-store', compact('slug', 'product'));
+            $seo = $product;
+            return view('frontend.single-store', compact('slug', 'product','seo'));
         }
+
+        $seo = Seo::where('page_name','=','store')->first();
+
         $products = Product::orderBy('id','desc')->get();
-        return view('frontend.store' ,compact('products'));
+        
+        return view('frontend.store' ,compact('products','seo'));
     }
 
     function enrollment()
     {
-        return view('frontend.enrollment');
+        $seo = Seo::where('page_name','=','enrollment')->first();
+        return view('frontend.enrollment',compact('seo'));
     }
 
     function membership()
     {
-        return view('frontend.membership');
+        $seo= seo::where('page_name','=','membership')->first();
+        return view('frontend.membership',compact('seo'));
     }
 
     function contactus()
     {
-        return view('frontend.contactus');
+        $seo = Seo::where('page_name','=','contact')->first();
+        return view('frontend.contactus',compact('seo'));
     }
 
     function donate()
     {
-        return view('frontend.donate');
+        $seo = Seo::where('page_name','=','donate')->first();
+        return view('frontend.donate',compact('seo'));
     }
 
     function leadCreate(Request $request)
@@ -119,10 +134,5 @@ class IndexController extends Controller
         ], 500);
     }
 
-    public function program($slug){
-
-        $program = Program::where('slug', $slug)->first();
-
-        return view('frontend.program', compact('program'));
-    }
+  
 }

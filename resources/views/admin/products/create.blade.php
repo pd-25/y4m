@@ -167,7 +167,43 @@
                             <div class="row mb-3">
                                 <div id="image-preview" class="col-sm-12 d-flex flex-wrap gap-2"></div>
                             </div>
+                            <hr>
 
+                            <div class="row mb-3">
+                                <label for="meta_title" class="col-sm-2 col-form-label">Meta Title</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="meta_title" class="form-control">
+                                    @error('meta_title')
+                                        <span class="text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="meta_description" class="col-sm-2 col-form-label">Meta Description</label>
+                                <div class="col-sm-10">
+                                    <textarea name="meta_description" class="form-control" rows="3"></textarea>
+                                    @error('meta_description')
+                                        <span class="text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="hederscript" class="col-sm-2 col-form-label">Header Script</label>
+                                <div class="col-sm-10">
+                                    <textarea name="hederscript" class="form-control" rows="3"></textarea>
+                                    @error('hederscript')
+                                        <span class="text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
                             <!-- Submit and Cancel Buttons -->
                             <div class="row mb-3">
                                 <div class="col-sm-12">

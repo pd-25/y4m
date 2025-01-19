@@ -46,6 +46,12 @@
                 <span>Team Members</span>
             </a>
         </li>
+        <li class="nav-item {{ Route::is('seo.*') ? 'active' : '' }}">
+            <a class="nav-link " href="{{route('seo.index')}}">
+                <i class="ri-group-fill"></i>
+                <span>Seo</span>
+            </a>
+        </li>
         <hr>
         <h5>Product</h5>
 

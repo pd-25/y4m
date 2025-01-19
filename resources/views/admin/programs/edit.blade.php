@@ -72,7 +72,42 @@
                                 </div>
                                 <button type="button" class="btn btn-sm btn-success add-faq mt-3">Add FAQ</button>
                             </div>
+                            <hr>
+                            <div class="row mb-3">
+                                <label for="meta_title" class="col-sm-2 col-form-label">Meta Title</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="meta_title" class="form-control" value="{{ old('meta_title', $program->meta_title) }}">
+                                    @error('meta_title')
+                                        <span class="text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
 
+                            <div class="row mb-3">
+                                <label for="meta_description" class="col-sm-2 col-form-label">Meta Description</label>
+                                <div class="col-sm-10">
+                                    <textarea name="meta_description" class="form-control" rows="3">{{ old('meta_description', $program->meta_description) }}</textarea>
+                                    @error('meta_description')
+                                        <span class="text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="hederscript" class="col-sm-2 col-form-label">Header Script</label>
+                                <div class="col-sm-10">
+                                    <textarea name="hederscript" class="form-control" rows="3">{{ old('hederscript', $program->hederscript) }}</textarea>
+                                    @error('hederscript')
+                                        <span class="text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
                             <div class="mt-4">
                                 <button type="submit" class="btn btn-primary">Update Program</button>
                                 <a href="{{ route('programs.index') }}" class="btn btn-secondary">Cancel</a>

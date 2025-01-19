@@ -34,10 +34,13 @@ class ProgramController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'faqs.*.question' => 'nullable|string|max:255',
             'faqs.*.answer' => 'nullable|string',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'hederscript' => 'nullable|string',
         ]);
 
         // Save program
-        $programData = $request->only(['title', 'description']);
+        $programData = $request->only(['title', 'description','meta_title','meta_description','hederscript']);
         if ($request->hasFile('image')) {
             $programData['image'] = $request->file('image')->store('programs', 'public');
         }
@@ -83,10 +86,15 @@ class ProgramController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'faqs.*.question' => 'nullable|string|max:255',
             'faqs.*.answer' => 'nullable|string',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'hederscript' => 'nullable|string',
         ]);
 
+      
+
         // Update program
-        $programData = $request->only(['title', 'description']);
+        $programData = $request->only(['title', 'description','meta_title','meta_description','hederscript']);
         if ($request->hasFile('image')) {
             // Delete the old image if it exists
             if ($program->image) {

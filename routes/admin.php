@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\JournalController;
 use App\Http\Controllers\admin\CourseController;
 use App\Http\Controllers\admin\product\ProductController;
 use App\Http\Controllers\admin\program\ProgramController;
+use App\Http\Controllers\admin\seo\seoController;
 use App\Http\Controllers\admin\teamMember\teamMemberController;
 use App\Http\Controllers\admin\user\userController;
 use Illuminate\Support\Facades\Route;
@@ -36,5 +37,6 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
 
     Route::resource('/programs', ProgramController::class);
     Route::resource('/team-members', teamMemberController::class);
+    Route::resource('/seo', seoController::class);
 
 });

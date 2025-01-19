@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>{{$seo->meta_title ?? 'YesAmerica'}}</title>
+    <meta name="description" content="{{$seo->meta_description ?? 'yesAmerica'}}">
+    {{$seo->hederscript ?? ''}}
     @include('frontend.layout.partials.header-docs')
 </head>
 

@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 class Program extends Model
 
 {
-    protected $fillable = ['title', 'description','slug', 'image'];
+    protected $fillable = ['title', 'description','slug', 'image', 'meta_title', 'meta_description', 'hederscript'];
 
     // Automatically generate the slug when setting the title
     public function setTitleAttribute($value)
