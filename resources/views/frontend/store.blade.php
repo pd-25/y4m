@@ -27,11 +27,11 @@
             @foreach($products as $product)
             <div class="col-6">
             <div class="store-card">
-                
+
                 <div class="card__media">
                     <div class="media--hover-effect">
-                        <a href="{{route('store', $product->slug)}}" class="store-detail-link"><img src="{{ isset($product->productImages[0]) ? asset('storage/'.$product->productImages[0]->image_path) : '' }}" alt="white-hat" class="store-img1"></a> 
-                      
+                        <a href="{{route('store', $product->slug)}}" class="store-detail-link"><img src="{{ isset($product->productImages[0]) ? asset('storage/'.$product->productImages[0]->image_path) : '' }}" alt="white-hat" class="store-img1"></a>
+
                         <a href="{{route('store', $product->slug)}}" class="store-detail-link"> <img src="{{ isset($product->productImages[1]) ? asset('storage/'.$product->productImages[1]->image_path) : asset('storage/'.$product->productImages[0]->image_path) }}"
                             alt="black-hat" class="hover-image store-img"></a>
                     </div>
@@ -40,7 +40,7 @@
                         <p class="store-card-p"> <a href="{{route('store', $product->slug)}}" class="store-detail-link-p store-card-content-a">${{$product->productVariants[0]->price}}</a></p>
                     </div>
                 </div>
-              
+
             </div>
         </div>
             @endforeach
@@ -48,7 +48,7 @@
         </div>
     </section>
 <style>
- 
+
     </style>
     <!-- ================ store area end ===================== -->
 @endsection

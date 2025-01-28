@@ -16,28 +16,29 @@ class IndexController extends Controller
 {
     function index()
     {
-        $seo=Seo::where('page_name','=','home')->first();
-        return view('frontend.index',compact('seo'));
+        $seo = Seo::where('page_name', '=', 'home')->first();
+        return view('frontend.index', compact('seo'));
     }
     function ourvision()
     {
-        $seo = Seo::where('page_name','=','our-vision')->first();
-        return view('frontend.our-vision',compact('seo'));
+        $seo = Seo::where('page_name', '=', 'our-vision')->first();
+        return view('frontend.our-vision', compact('seo'));
     }
-    public function program($slug){
+    public function program($slug)
+    {
 
         $program = Program::where('slug', $slug)->first();
         $seo = $program;
 
-        return view('frontend.program', compact('program','seo'));
+        return view('frontend.program', compact('program', 'seo'));
     }
 
     function ourteam()
     {
         $member = Member::get();
-        $seo = Seo::where('page_name','=','our-team')->first();
+        $seo = Seo::where('page_name', '=', 'our-team')->first();
 
-        return view('frontend.our-team',compact('member','seo'));
+        return view('frontend.our-team', compact('member', 'seo'));
     }
 
     function store($slug = null)
@@ -45,38 +46,38 @@ class IndexController extends Controller
         if ($slug) {
             $product = Product::where('slug', $slug)->first();
             $seo = $product;
-            return view('frontend.single-store', compact('slug', 'product','seo'));
+            return view('frontend.single-store', compact('slug', 'product', 'seo'));
         }
 
-        $seo = Seo::where('page_name','=','store')->first();
+        $seo = Seo::where('page_name', '=', 'store')->first();
 
-        $products = Product::orderBy('id','desc')->get();
-        
-        return view('frontend.store' ,compact('products','seo'));
+        $products = Product::orderBy('id', 'desc')->get();
+
+        return view('frontend.store', compact('products', 'seo'));
     }
 
     function enrollment()
     {
-        $seo = Seo::where('page_name','=','enrollment')->first();
-        return view('frontend.enrollment',compact('seo'));
+        $seo = Seo::where('page_name', '=', 'enrollment')->first();
+        return view('frontend.enrollment', compact('seo'));
     }
 
     function membership()
     {
-        $seo= seo::where('page_name','=','membership')->first();
-        return view('frontend.membership',compact('seo'));
+        $seo = seo::where('page_name', '=', 'membership')->first();
+        return view('frontend.membership', compact('seo'));
     }
 
     function contactus()
     {
-        $seo = Seo::where('page_name','=','contact')->first();
-        return view('frontend.contactus',compact('seo'));
+        $seo = Seo::where('page_name', '=', 'contact')->first();
+        return view('frontend.contactus', compact('seo'));
     }
 
     function donate()
     {
-        $seo = Seo::where('page_name','=','donate')->first();
-        return view('frontend.donate',compact('seo'));
+        $seo = Seo::where('page_name', '=', 'donate')->first();
+        return view('frontend.donate', compact('seo'));
     }
 
     function leadCreate(Request $request)
@@ -106,7 +107,8 @@ class IndexController extends Controller
             "msg" => "Some error occurred."
         ], 500);
     }
-    public function contactdata(Request $request){
+    public function contactdata(Request $request)
+    {
         $this->validate($request, [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -117,7 +119,7 @@ class IndexController extends Controller
         ]);
         $data = $request->only("first_name", "last_name", "email", "phone", "subject", "message", "page");
         $data['type'] = '1';
-        $data['subject']='null';
+        $data['subject'] = 'null';
         $user = Enquery::create($data);
         if ($user instanceof Enquery) {
 
@@ -133,6 +135,4 @@ class IndexController extends Controller
             "msg" => "Some error occurred."
         ], 500);
     }
-
-  
 }

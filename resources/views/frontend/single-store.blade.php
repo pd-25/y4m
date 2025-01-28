@@ -25,7 +25,6 @@
                                 @foreach($product->productImages as $image)
                                 <div class="slide"><img src="{{asset('storage/'.$image->image_path)}}" alt="{{$product->name}}-{{$image->id}}"
                                         class="store-slider-img" /></div>
-
                                 @endforeach
 
                             </div>
@@ -44,7 +43,9 @@
                 <div class="col-lg-6">
                     <div class="store-form-card">
                         <h2 class="secondary-header tag-padding text-black">{{$product->name}}</h2>
-                        <p class="store-price-p">$25.00</p>
+                        {{-- <p class="store-price-p">$25.00</p> --}}
+                        <p class="store-price-p">${{$product->productVariants[0]->price}}</p>
+
                         @php
                         // Build a JSON object of variant prices for JavaScript
                         $variantPrices = [];
@@ -52,10 +53,14 @@
                         $variantPrices[$variant->variant_name][$variant->measurement] = $variant->price;
                         }
                         @endphp
-                        <div class="store-detail-form">
-                            <form>
 
-                               
+                        <div class="store-detail-form">
+                            <form action="{{ route('processTransaction') }}" method="GET" name="processtransaction">
+                                @csrf
+
+                                <input type="hidden" name="product_price" value="{{ $product->productVariants[0]->price }}">
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+
                                 @foreach (\App\enum\ProductVariant::values() as $value)
                                 <div class="contact-inuput-w-100 store-input-margin">
                                     <label for="size" class="store-select-labels">{{ $value }} &#x3a;</label>
@@ -81,8 +86,8 @@
                                         </select>
                                     </div> --}}
                                 <div class="contact-inuput-w-100 store-input-margin">
-                                    <div class="crtdiv">
-                                        <span class="qty">
+                                     {{-- <div {{-- div class="crtdiv">
+                                       <span class="qty">
                                             <span class="dec">
                                                 <i class="fa fa-minus"></i>
                                             </span>
@@ -93,11 +98,13 @@
                                                 <i class="fab-solid fa-plus"></i>
                                             </span>
                                         </span>
-
-                                    </div>
+                                    </div> --}}
+                                    <input type="number" name="qty" class="qty" placeholder="Enter Your Quantity" min="1">
                                 </div>
                                 <div class="store-btn-div">
-                                    <a href="donate.html" class="btn-orange-large">add to cart</a>
+                                    {{-- <a href="donate.html" class="btn-orange-large">add to cart</a> --}}
+                                    <input type="submit" name="submit" value="Buy Now" class="btn-orange-large">
+
                                 </div>
                             </form>
                         </div>
@@ -182,7 +189,7 @@
         });
 
     });
-    
+
 </script>
 
 <!-- ================ store area end ===================== -->

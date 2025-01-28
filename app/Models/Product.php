@@ -9,7 +9,6 @@ class Product extends Model
 {
     protected $fillable = ["slug", "name", "description", "price", "category_id", "type", "status", "quantity_in_stock", "meta_title", "meta_description", "hederscript"];
 
-
     protected static function boot()
     {
         parent::boot();
@@ -34,7 +33,8 @@ class Product extends Model
     {
         return $this->hasMany(ProductImage::class, "product_id", "id");
     }
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo(Category::class, "category_id", "id");
     }
 

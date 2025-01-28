@@ -46,9 +46,8 @@ class ProductRepo implements ProductInterface
     public function storeProduct($productData, $variations, $productImages)
     {
         try {
+
             return DB::transaction(function () use ($productData, $variations, $productImages) {
-
-
                 $createProduct = $this->productModel->create($productData);
 
                 if ($createProduct instanceof Product) {
@@ -66,7 +65,8 @@ class ProductRepo implements ProductInterface
                             "is_primary" => $index === 0 ? 1 : 0  // Set first image as primary
                         ]);
                     }
-                    return true;
+
+                    //return true;
                 }
                 return false;
             });

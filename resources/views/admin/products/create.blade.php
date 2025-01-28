@@ -7,6 +7,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Add New Product</h5>
+                        @if ($errors->any())
+                            @foreach ($errors->all() as $error)
+                                <div>{{$error}}</div>
+                            @endforeach
+                        @endif
                         <form action="{{ route('product-mamages.store') }}" method="POST" enctype="multipart/form-data">
                             @method('POST')
                             @csrf

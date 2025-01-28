@@ -42,6 +42,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         try {
+
             $request->validate([
                 'name' => 'required|string',
                 'category_id' => 'required|exists:categories,id',
@@ -56,10 +57,7 @@ class ProductController extends Controller
                 'meta_title' => 'nullable|string|max:255',
                 'meta_description' => 'nullable|string',
                 'hederscript' => 'nullable|string',
-
             ]);
-
-
 
             // Update the input with default values where necessary
             $request->merge([
@@ -71,20 +69,23 @@ class ProductController extends Controller
                 $variations[] = [
                     'variant_name' => $variantName,
                     'measurement' => $request->measurement[$index],
-                    'measurement_param' => $request->measurement_param[$index],
+                    //'measurement_param' => $request->measurement_param[$index],
+                    'measurement_param' => 0,
                     'price' => $request->price[$index],
                     'quantity' => $request->quantity[$index],
                     'is_show' => $index === 0 ? 1 : 0,
                 ];
             }
 
-            $productData = $request->only("name", "category_id", "type", "description","meta_title","meta_description","hederscript");
+
+            $productData = $request->only("name", "category_id", "type", "description", "meta_title", "meta_description", "hederscript");
+
             $productData["quantity_in_stock"] = array_sum(array_column($variations, 'quantity'));
 
             $productImages = $request->only("images");
 
             $storeProduct = $this->productInterface->storeProduct($productData, $variations, $productImages);
-            // dd($storeProduct);
+            //dd($storeProduct);
             if ($storeProduct) {
                 return redirect()->route('product-mamages.index')->with('msg', 'Product created successfully!');
             } else {
@@ -152,14 +153,14 @@ class ProductController extends Controller
                 $variations[] = [
                     'variant_name' => $variantName,
                     'measurement' => $request->measurement[$index],
-                    'measurement_param' => $request->measurement_param[$index],
+                    'measurement_param' => 0,
                     'price' => $request->price[$index],
                     'quantity' => $request->quantity[$index],
                 ];
             }
 
             // Prepare main product data
-            $productData = $request->only("name", "category_id", "type", "description","meta_title","meta_description","hederscript");
+            $productData = $request->only("name", "category_id", "type", "description", "meta_title", "meta_description", "hederscript");
             $productData["quantity_in_stock"] = array_sum(array_column($variations, 'quantity'));
 
             // Prepare images if any new images are uploaded
