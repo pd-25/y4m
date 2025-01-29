@@ -63,14 +63,15 @@
 
                                 @foreach (\App\enum\ProductVariant::values() as $value)
                                 <div class="contact-inuput-w-100 store-input-margin">
-                                    <label for="size" class="store-select-labels">{{ $value }} &#x3a;</label>
+                                    <label for="size" class="store-select-labels"> {{ $value }} &#x3a;</label>
 
                                     <select name="{{ $value }}" id="{{ $value }}" class="store-select">
                                         <option value="Select size">Select {{ $value }}</option>
 
                                         {{-- Match $value with database records and populate options --}}
-                                        @foreach ($product->productVariants->where('variant_name', $value) as $variant)
-                                        <option value="{{ $variant->measurement }}">{{ $variant->measurement }}</option>
+                                        @foreach ($product->productVariants->where('variant_name', ucwords($value)) as $variant)
+                                      
+                                        <option value="{{ $variant->measurement }}">{{ $variant->measurement }}  </option>
                                         @endforeach
                                     </select>
                                 </div>

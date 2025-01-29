@@ -142,7 +142,6 @@ class ProductController extends Controller
                 'meta_description' => 'nullable|string',
                 'hederscript' => 'nullable|string',
             ]);
-            // dd($request->all());
             // Prepare variations
             $request->merge([
                 'measurement_param' => '0',

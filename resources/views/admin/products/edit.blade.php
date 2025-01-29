@@ -72,12 +72,14 @@
                             <!-- Variant Section -->
                             <div id="variant-container">
                                 <label for="inputText" class="col-sm-2 col-form-label"><strong>Product Variants</strong></label>
+                                
                                 @foreach ($product->productVariants as $variant)
                                     <div class="row mb-3 variant">
                                         <div class="col-md-2">
                                             <select name="variant_name[]" class="form-control" required>
                                                 @foreach (\App\enum\ProductVariant::values() as $value)
-                                                    <option value="{{ $value }}" {{ $variant->name == $value ? 'selected' : '' }}>{{ $value }}</option>
+
+                                                    <option value="{{ $value }}" {{ $variant->variant_name == $value ? 'selected' : '' }}>{{ $value }}</option>
                                                 @endforeach
                                             </select>
                                             @error('variant_name.*')
