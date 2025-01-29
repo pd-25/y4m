@@ -17,6 +17,12 @@ Route::get('/enrollment', [IndexController::class, 'enrollment'])->name('enrollm
 Route::get('/membership', [IndexController::class, 'membership'])->name('membership');
 Route::get('/contact-us', [IndexController::class, 'contactus'])->name('contactus');
 Route::get('/donate', [IndexController::class, 'donate'])->name('donate');
+Route::get('/donate-now', [IndexController::class, 'donatenow'])->name('donatenow');
+Route::post('/donate-now-post', [PayPalController::class, 'donatenowpost'])->name('donatenowpost');
+Route::get('/donate-now-success', [PayPalController::class, 'donatenowsuccess'])->name('donatenowsuccess');
+Route::get('/donate-now-cancel', [PayPalController::class, 'donatenowcancel'])->name('donatenowcancel');
+
+
 Route::post('/lead-create', [IndexController::class, 'leadCreate'])->name('lead-create');
 Route::post('/contact-data', [IndexController::class, 'contactdata'])->name('contact-data');
 Route::get('/program/{slug?}', [IndexController::class, 'program'])->name('program');
@@ -24,7 +30,9 @@ Route::get('/program/{slug?}', [IndexController::class, 'program'])->name('progr
 Route::get('create-transaction', [PayPalController::class, 'createTransaction'])->name('createTransaction');
 Route::get('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');
 Route::get('success-transaction', [PayPalController::class, 'successTransaction'])->name('successTransaction');
+Route::get('success-transaction-msg', [PayPalController::class, 'successTransactionMsg'])->name('successTransactionMsg');
 Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
+Route::get('cancel-transaction-msg', [PayPalController::class, 'cancelTransactionMsg'])->name('cancelTransactionMsg');
 
 Route::get('optimize', function () {
 

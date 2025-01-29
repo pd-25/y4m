@@ -18,22 +18,26 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Order Number</th>
                                 <th scope="col">Customer Name</th>
+                                <th scope="col">Product Size</th>
+                                <th scope="col">Product Color</th>
                                 <th scope="col">Total Price</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Order Date</th>
-                                <th scope="col">Action</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($orders as $order)
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
-                                    <td>{{ $order->order_number }}</td>
-                                    <td>{{ $order->name }}</td>
-                                    <td>${{ number_format($order->total_price, 2) }}</td>
-                                    <td>{{ ucfirst($order->status) }}</td>
+                                    <td>{{ $order->order_id }}</td>
+                                    <td></td>
+                                    <td>{{ @$order->product_size }}</td>
+                                    <td>{{ @$order->product_color }}</td>
+                                    <td>${{ number_format($order->product_price, 2) }}</td>
+                                    <td>{{ $order->status }}</td>
                                     <td>{{ \Carbon\Carbon::parse($order->created_at)->format('d-m-Y H:i:s') }}</td>
-                                    <td>
+                                    {{-- <td>
                                         <a href="{{ route('orders.show', $order->id) }}" class="btn btn-sm btn-outline-info">
                                             <i class="ri-eye-fill"></i> View
                                         </a>
@@ -47,10 +51,10 @@
                                                 <i class="ri-delete-bin-2-fill"></i> Delete
                                             </button>
                                         </form>
-                                    </td>
+                                    </td> --}}
                                 </tr>
 
-                                <!-- Expandable row for Order Items -->
+                                {{-- <!-- Expandable row for Order Items -->
                                 @if ($order->orderItems->isNotEmpty())
                                     <tr>
                                         <td colspan="7">
@@ -81,7 +85,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                @endif
+                                @endif --}}
                             @empty
                                 <tr>
                                     <td colspan="7" class="text-center">No Record Found</td>

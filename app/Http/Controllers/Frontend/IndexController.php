@@ -41,6 +41,12 @@ class IndexController extends Controller
         return view('frontend.our-team', compact('member', 'seo'));
     }
 
+    function donatenow()
+    {
+        $seo = Seo::where('page_name', '=', 'home')->first();
+        return view('donatenow', compact('seo'));
+    }
+
     function store($slug = null)
     {
         if ($slug) {
