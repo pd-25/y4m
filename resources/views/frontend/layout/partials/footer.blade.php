@@ -25,6 +25,17 @@
                     <h3 class="footer-h3">Email:
                         <span>flaari@youth4america.com</span>
                     </h3>
+                    <div class="d-flex g-4 justify-content-center" style="gap:10px">
+                        {{-- <a href="https://www.facebook.com/youth4america" target="_blank">
+                            <i class="fa fa-facebook footer-social-icon"></i>
+                        </a> --}}
+                        <a href="https://www.instagram.com/flaariyouth4america/" class="icod" target="_blank">
+                            <i class="fa-brands fa-instagram footer-social-icon"></i>
+                        </a>
+                        <a href="https://x.com/Youth4americ" target="_blank" class="icod">
+                            <i class="fa-brands fa-x-twitter footer-social-icon"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,5 +47,10 @@
             </div>
         </div>
     </div>
-
+<style>
+    .icod{
+    color: white;
+    font-size: 24px;
+}
+    </style>
 </footer>
