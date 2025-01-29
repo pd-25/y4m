@@ -66,7 +66,7 @@ class ProductRepo implements ProductInterface
                         ]);
                     }
 
-                    //return true;
+                    return true;
                 }
                 return false;
             });

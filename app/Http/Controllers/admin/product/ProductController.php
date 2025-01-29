@@ -63,7 +63,6 @@ class ProductController extends Controller
             $request->merge([
                 'measurement_param' => '0',
             ]);
-
             $variations = [];
             foreach ($request->variant_name as $index => $variantName) {
                 $variations[] = [
@@ -85,7 +84,7 @@ class ProductController extends Controller
             $productImages = $request->only("images");
 
             $storeProduct = $this->productInterface->storeProduct($productData, $variations, $productImages);
-            //dd($storeProduct);
+       
             if ($storeProduct) {
                 return redirect()->route('product-mamages.index')->with('msg', 'Product created successfully!');
             } else {
