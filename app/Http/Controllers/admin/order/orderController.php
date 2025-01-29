@@ -6,6 +6,8 @@ use App\Core\order\OrderInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Ordernew;
+use Illuminate\Support\Facades\DB;
+use App\Models\Donate;
 
 class orderController extends Controller
 {
@@ -20,8 +22,17 @@ class orderController extends Controller
     public function index()
     {
         //$orders = $this->orderInterface->fetchAllorders();
-        $orders = Ordernew::get();
+        $orders = DB::table('ordernew as o')
+            ->select('o.*', 'p.name as product_name')
+            ->leftJoin('products as p', 'o.product_id', '=', 'p.id')
+            ->get();
         return view('admin.orders.index', compact('orders'));
+    }
+
+    public function donate()
+    {
+        $donate = Donate::get();
+        return view('admin.orders.donate', compact('donate'));
     }
 
     /**

@@ -29,10 +29,10 @@
                         <span>Contact Page</span>
                     </a>
                 </li>
-                
+
             </ul>
         </li>
-        
+
 
         <li class="nav-item {{ Route::is('programs.*') ? 'active' : '' }}">
             <a class="nav-link " href="{{route('programs.index')}}">
@@ -61,7 +61,7 @@
                 <span>Categories</span>
             </a>
         </li>
-       
+
 
         <li class="nav-item {{ Route::is('product-mamages.*') ? 'active' : '' }}">
             <a class="nav-link " href="{{route('product-mamages.index')}}">
@@ -75,13 +75,20 @@
                 <span>Orders</span>
             </a>
         </li>
+        <li class="nav-item {{ Route::is('donate') ? 'active' : '' }}">
+            <a class="nav-link " href="{{route('admin.donate')}}">
+                <i class="ri-group-fill"></i>
+                <span>Donate</span>
+            </a>
+        </li>
+
         <li class="nav-item {{ Route::is('users.*') ? 'active' : '' }}">
             <a class="nav-link " href="{{route('users.index')}}">
                 <i class="ri-group-fill"></i>
                 <span>Users</span>
             </a>
         </li>
-        
+
     </ul>
 
 </aside>

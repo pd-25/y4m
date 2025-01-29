@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('admin/login', [AuthController::class, 'showLogin'])->name('admin.showlogin');
 Route::post('admin/login', [AuthController::class, 'login'])->name('admin.login');
 
-Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/leads/{page}', [DashboardController::class, 'leads'])->name('admin.leads');
     Route::delete('/leads/destroy/{id}', [DashboardController::class, 'leadsdestory'])->name('admin.leadsdestory');
@@ -34,9 +34,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
     Route::put('/reviews/{review}/status', [ProductReviewController::class, 'updateStatus'])->name('reviews.updateStatus');
     Route::resource('/users', userController::class);
     Route::resource('/orders', orderController::class);
-
+    Route::get('donate', [orderController::class, 'donate'])->name('admin.donate');
     Route::resource('/programs', ProgramController::class);
     Route::resource('/team-members', teamMemberController::class);
     Route::resource('/seo', seoController::class);
-
 });
