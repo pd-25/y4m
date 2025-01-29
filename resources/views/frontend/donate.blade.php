@@ -136,7 +136,7 @@
                             class="donate-gift-hand-img">
                     </div>
                     <div class="btn-div-large mx-auto">
-                        <a href="#" class="btn-orange-large">donate today </a>
+                        <a href="{{ route('donatenow') }}" class="btn-orange-large">donate today </a>
                     </div>
                 </div>
             </div>

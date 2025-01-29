@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin\order;
 use App\Core\order\OrderInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Ordernew;
 
 class orderController extends Controller
 {
@@ -18,7 +19,8 @@ class orderController extends Controller
     }
     public function index()
     {
-        $orders = $this->orderInterface->fetchAllorders();
+        //$orders = $this->orderInterface->fetchAllorders();
+        $orders = Ordernew::get();
         return view('admin.orders.index', compact('orders'));
     }
 
@@ -56,12 +58,12 @@ class orderController extends Controller
         $statusOptions = \App\enum\OrderStatus::values(); // Get all status values from the enum
         return view('admin.orders.edit', compact('order', 'statusOptions'));
     }
-    
-    
+
+
     public function update(Request $request, $id)
     {
-        $data = $request->only(['name', 'status','email', 'street_address', 'appertment_house_no', 'town_city', 'state', 'postcode']); // Fields allowed to update
-    
+        $data = $request->only(['name', 'status', 'email', 'street_address', 'appertment_house_no', 'town_city', 'state', 'postcode']); // Fields allowed to update
+
         $order = $this->orderInterface->updateOrder($id, $data); // Update the order using the repository
         return redirect()->route('orders.index')->with('msg', 'Order updated successfully'); // Redirect with success message
     }
