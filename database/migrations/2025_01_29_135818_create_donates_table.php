@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('donates', function (Blueprint $table) {
             $table->id();
+            $table->string('order_id', 100)->nullable();
+            $table->string('name', 100)->nullable();
+            $table->string('email', 100)->nullable();
+            $table->decimal('amount', 10, 2)->nullable();
+            $table->enum('status', ['pending', 'success'])->default('pending');
             $table->timestamps();
         });
     }
