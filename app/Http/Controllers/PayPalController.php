@@ -184,6 +184,19 @@ class PayPalController extends Controller
 
     public function donatenowsuccess(Request $request)
     {
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $provider->getAccessToken();
+        $response = $provider->capturePaymentOrder($request['token']);
+        if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+            //dd($response->id);
+
+            Donate::where('order_id', $response['id'])
+                ->update([
+                    'status' => 'success'
+                ]);
+        }
+
         return view('success-transaction-donate-now');
     }
 }
