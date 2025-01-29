@@ -17,6 +17,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Order Number</th>
+                                <th scope="col">Product Name</th>
                                 <th scope="col">Customer Name</th>
                                 <th scope="col">Product Size</th>
                                 <th scope="col">Product Color</th>
@@ -31,6 +32,7 @@
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $order->order_id }}</td>
+                                    <td>{{ @$order->product_name }}</td>
                                     <td></td>
                                     <td>{{ @$order->product_size }}</td>
                                     <td>{{ @$order->product_color }}</td>
