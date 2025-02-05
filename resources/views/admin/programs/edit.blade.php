@@ -1,6 +1,14 @@
 @extends('admin.layout.main')
 @section('title', 'Edit Program | ')
 @section('content')
+<!-- Summernote CSS -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+<!-- jQuery (necessary for Summernote) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Summernote JS -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <section class="section dashboard">
         <div class="row">
             <div class="col-lg-12">
@@ -121,45 +129,52 @@
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            let faqIndex = {{ $program->faqs->count() }}; // Start index from existing FAQs count
+$(document).ready(function() {
+    // Initialize Summernote for description
+    $('#description').summernote({
+        height: 200,
+    });
 
-            // Add FAQ
-            document.querySelector('.add-faq').addEventListener('click', function () {
-                const container = document.getElementById('faq-container');
-                const newFaq = `
-                    <div class="faq-item mb-3">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" name="faqs[${faqIndex}][question]" class="form-control" 
-                                    placeholder="Enter Question" required>
-                            </div>
-                            <div class="col-md-6">
-                                <textarea name="faqs[${faqIndex}][answer]" class="form-control" rows="2" 
-                                    placeholder="Enter Answer" required></textarea>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-sm btn-danger mt-2 remove-faq">Remove</button>
-                    </div>
-                `;
-                container.insertAdjacentHTML('beforeend', newFaq);
-                faqIndex++;
+    let faqIndex = $('#faq-container .faq-item').length; // Count existing FAQs
 
-                // Add event listener to the new Remove button
-                attachRemoveEvent();
-            });
-
-            // Remove FAQ
-            function attachRemoveEvent() {
-                document.querySelectorAll('.remove-faq').forEach(function (button) {
-                    button.addEventListener('click', function () {
-                        this.closest('.faq-item').remove();
-                    });
-                });
-            }
-
-            // Attach Remove Event to the existing buttons
-            attachRemoveEvent();
+    // Initialize Summernote for all existing FAQ answer fields
+    $('#faq-container .faq-item textarea').each(function() {
+        $(this).summernote({
+            height: 100,
         });
+    });
+
+    // Add FAQ
+    $('.add-faq').on('click', function () {
+        const container = $('#faq-container');
+        const newFaq = `
+            <div class="faq-item mb-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" name="faqs[${faqIndex}][question]" class="form-control" placeholder="Enter Question" required>
+                    </div>
+                    <div class="col-md-6">
+                        <textarea name="faqs[${faqIndex}][answer]" class="faq-answer form-control" rows="2" placeholder="Enter Answer" required></textarea>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-sm btn-danger mt-2 remove-faq">Remove</button>
+            </div>
+        `;
+        container.append(newFaq);
+
+        // Initialize Summernote for the new answer field
+        $(`textarea[name="faqs[${faqIndex}][answer]"]`).summernote({
+            height: 100,
+        });
+
+        faqIndex++;
+    });
+
+    // Remove FAQ
+    $(document).on('click', '.remove-faq', function () {
+        $(this).closest('.faq-item').remove();
+    });
+});
+
     </script>
 @endsection

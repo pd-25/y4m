@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('ordernew', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id');
+            $table->string('order_id', 100)->nullable();
+            $table->integer('product_id');
             $table->string('product_size', 100)->nullable();
             $table->string('product_color', 100)->nullable();
             $table->decimal('product_price', 10, 2)->nullable();
@@ -21,7 +22,7 @@ return new class extends Migration
             $table->enum('status', ['pending', 'payment_success', 'payment_failure']);
             $table->longText('paypal_success_log')->nullable();
             $table->longText('paypal_failure_log')->nullable();
-            $table->timestamps();
+            $table->timestamps();  // this creates `created_at` and `updated_at` columns
         });
     }
 

@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\product\ProductReviewController;
 use App\Http\Controllers\admin\ResearchController;
 use App\Http\Controllers\admin\JournalController;
 use App\Http\Controllers\admin\CourseController;
+use App\Http\Controllers\admin\events\EventController;
 use App\Http\Controllers\admin\product\ProductController;
 use App\Http\Controllers\admin\program\ProgramController;
 use App\Http\Controllers\admin\seo\seoController;
@@ -38,4 +39,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('/programs', ProgramController::class);
     Route::resource('/team-members', teamMemberController::class);
     Route::resource('/seo', seoController::class);
+    Route::resource('events',EventController::class);
 });

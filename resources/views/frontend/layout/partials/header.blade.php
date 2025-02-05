@@ -35,7 +35,7 @@
                         <a class="nav-link {{Route::is('ourteam') ? 'active':''}}" href="{{route('ourteam')}}">our team</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('ourvision')}}">events</a>
+                        <a class="nav-link" href="{{route('events.frontend')}}">events</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{Route::is('store') ? 'active':''}}" href="{{route('store')}}">store</a>

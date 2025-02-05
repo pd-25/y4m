@@ -1,6 +1,14 @@
 @extends('admin.layout.main')
 @section('title', 'Create Program | ')
 @section('content')
+<!-- Summernote CSS -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+<!-- jQuery (necessary for Summernote) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Summernote JS -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <section class="section dashboard">
         <div class="row">
             <div class="col-lg-12">
@@ -108,12 +116,17 @@
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            let faqIndex = 1; // Keep track of FAQ index for dynamic fields
-
+        $(document).ready(function() {
+            // Initialize Summernote for description
+            $('#description').summernote({
+                height: 200,
+            });
+    
+            let faqIndex = 1; // Keep track of FAQ index
+    
             // Add FAQ
-            document.querySelector('.add-faq').addEventListener('click', function () {
-                const container = document.getElementById('faq-container');
+            $('.add-faq').on('click', function () {
+                const container = $('#faq-container');
                 const newFaq = `
                     <div class="faq-item mb-3">
                         <div class="row">
@@ -121,30 +134,32 @@
                                 <input type="text" name="faqs[${faqIndex}][question]" class="form-control" placeholder="Enter Question" required>
                             </div>
                             <div class="col-md-6">
-                                <textarea name="faqs[${faqIndex}][answer]" class="form-control" rows="2" placeholder="Enter Answer" required></textarea>
+                                <textarea name="faqs[${faqIndex}][answer]" class="faq-answer form-control" rows="2" placeholder="Enter Answer" required></textarea>
                             </div>
                         </div>
                         <button type="button" class="btn btn-sm btn-danger mt-2 remove-faq">Remove</button>
                     </div>
                 `;
-                container.insertAdjacentHTML('beforeend', newFaq);
-                faqIndex++;
-
-                // Add event listener to the new Remove button
-                attachRemoveEvent();
-            });
-
-            // Remove FAQ
-            function attachRemoveEvent() {
-                document.querySelectorAll('.remove-faq').forEach(function (button) {
-                    button.addEventListener('click', function () {
-                        this.closest('.faq-item').remove();
-                    });
+                container.append(newFaq);
+    
+                // Initialize Summernote for the new answer field
+                $(`textarea[name="faqs[${faqIndex}][answer]"]`).summernote({
+                    height: 100,
                 });
-            }
-
-            // Attach Remove Event to the initial button
-            attachRemoveEvent();
+    
+                faqIndex++;
+            });
+    
+            // Remove FAQ
+            $(document).on('click', '.remove-faq', function () {
+                $(this).closest('.faq-item').remove();
+            });
+    
+            // Initialize Summernote for the first FAQ answer field
+            $('textarea[name="faqs[0][answer]"]').summernote({
+                height: 50,
+            });
         });
-    </script>
+    </script>     
+    
 @endsection

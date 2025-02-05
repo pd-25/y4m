@@ -6,7 +6,7 @@
             <div class="col-lg-6 col-md-12">
                 <div class="program-content-box">
                     <h2 class="secondary-header tag-padding">{{$program->title}}</h2>
-                    <p class="primary-p">{{$program->description}}</p>
+                    <p class="primary-p">{!!$program->description!!}</p>
                         <div class="program-image-box d-lg-none">
                             <img src="{{ asset('storage/' . $program->image) }}" alt="{{$program->title}}" class="program-img">
                         </div>
@@ -18,7 +18,7 @@
                                     <button class="accordion-button collapsed" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#collapse-{{$faq->id}}"
                                         aria-expanded="false" aria-controls="collapse-{{$faq->id}}">
-                                        {{$faq->question}}
+                                        {!!$faq->question!!}
                                     </button>
                                 </h2>
                                 <div id="collapse-{{$faq->id}}" class="accordion-collapse collapse"

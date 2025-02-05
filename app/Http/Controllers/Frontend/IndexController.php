@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Enquery;
+use App\Models\Event;
 use App\Models\Product;
 use App\Models\Program;
 use App\Models\User;
@@ -140,5 +141,11 @@ class IndexController extends Controller
             "status" => "error",
             "msg" => "Some error occurred."
         ], 500);
+    }
+
+    public function events(){
+        $seo = Seo::where('page_name', '=', 'events')->first();
+        $events = Event::where('status', '=', '1')->paginate('10');
+        return view('frontend.event', compact('seo','events'));
     }
 }

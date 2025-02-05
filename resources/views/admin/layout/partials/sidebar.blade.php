@@ -34,6 +34,12 @@
         </li>
 
 
+        <li class="nav-item {{ Route::is('events.*') ? 'active' : '' }}">
+            <a class="nav-link " href="{{route('events.index')}}">
+                <i class="ri-group-fill"></i>
+                <span>Events</span>
+            </a>
+        </li>
         <li class="nav-item {{ Route::is('programs.*') ? 'active' : '' }}">
             <a class="nav-link " href="{{route('programs.index')}}">
                 <i class="ri-group-fill"></i>

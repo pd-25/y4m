@@ -33,6 +33,7 @@ Route::get('success-transaction', [PayPalController::class, 'successTransaction'
 Route::get('success-transaction-msg', [PayPalController::class, 'successTransactionMsg'])->name('successTransactionMsg');
 Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
 Route::get('cancel-transaction-msg', [PayPalController::class, 'cancelTransactionMsg'])->name('cancelTransactionMsg');
+Route::get('/events', [IndexController::class, 'events'])->name('events.frontend');
 
 Route::get('optimize', function () {
 
