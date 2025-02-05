@@ -41,9 +41,20 @@
         </div>
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-12">
-                <div class="copyright-footer">
-                    <p class="copyright-p">We respect your privacy.</p>
+                <div class="copyright-footer d-flex align-items-center  justify-content-between">
+                    <p class="copyright-p">
+                        &copy; <span id="currentYear"></span> youth4america | All Rights Reserved
+                    </p>
+                    <p class="copyright-p">
+                        Designed and Developed by ♥︎ 
+                        <a href="https://sweetdevelopers.com" target="_blank" style="color: white; text-decoration: none;">SweetDevelopers</a>
+                    </p>
                 </div>
+                
+                <script>
+                    document.getElementById("currentYear").textContent = new Date().getFullYear();
+                </script>
+                
             </div>
         </div>
     </div>
