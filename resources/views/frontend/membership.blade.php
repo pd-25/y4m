@@ -93,7 +93,9 @@
                 </div>
                 <div class="col-lg-6 col-md-10 h-100 membership-order-1">
                     <div class="membership-img-box">
-                        <img src="{{ asset('fassets/images/makes-program.webp') }}" alt="group-image"
+                        {{-- <img src="{{ asset('fassets/images/makes-program.webp') }}" alt="group-image"
+                            class="membership-img"> --}}
+                            <img src="{{ asset('fassets/images/quaterly-5.webp') }}" alt="group-image"
                             class="membership-img">
                     </div>
                 </div>
